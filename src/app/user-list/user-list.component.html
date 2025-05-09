@@ -1,0 +1,21 @@
+<button class="back-button" routerLink="/">← Volver al inicio</button>
+
+<div class="user-list-container">
+    <h2>Lista de usuarios</h2>
+
+    <input
+        type="text"
+        placeholder="Buscar por nombre o correo"
+        [(ngModel)]="searchTerm"
+        (keyup)="onSearch()"
+        class="search-input"
+    />
+
+    <button (click)="onReloadUsers()" class="reload-button">🔄 Recargar Usuarios</button>
+
+    <ul class="user-list">
+        <li *ngFor="let user of filteredUsers">
+            <strong>{{ user?.name }}</strong> - {{ user?.email }}
+        </li>
+    </ul>
+</div>
